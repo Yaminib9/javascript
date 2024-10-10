@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatureconverter</title>
+    <style>
+        #container {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width: 20%;
+            margin: auto;
+            text-align: center;
+            height: 20%;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2 id="heading" style="margin-top: 10px;">Temperatureconverter</h2>
+        <input id="given" type="number" placeholder="enter the number" style="margin-bottom: 10px;">
+        <div id="selection">
+            <select id="temp1">
+                <option value="K">kelvin</option>
+                <option value="F">fahrenheit</option>
+                <option value="C">celsius</option>
+            </select>
+            <select id="temp2" style="margin-bottom: 10px;">
+                <option value="K">kelvin</option>
+                <option value="F">fahrenheit</option>
+                <option value="c">celsius</option>
+            </select>
+        </div>
+
+        <button id="converter" onclick="giveResult()">converter</button>
+        <div id="output">
+            <h2> </h2>
+        </div>
+    </div>
+
+
+    <script>
+        function Converter(temp1, temp2, value) {
+            let results = value;
+
+            // Check the temperature scale
+            if (temp1 === 'C' && temp2 === 'K') {
+                results = value + 273.15; // Celsius to Kelvin
+            } else if (temp1 === 'K' && temp2 === 'C') {
+                results = value - 273.15; // Kelvin to Celsius
+            } else if (temp1 === 'C' && temp2 === 'F') {
+                results = (value * 9 / 5) + 32; // Celsius to Fahrenheit
+            } else if (temp1 === 'F' && temp2 === 'C') {
+                results = (value - 32) * 5 / 9; // Fahrenheit to Celsius
+            } else if (temp1 === 'F' && temp2 === 'K') {
+                results = ((value - 32) * 5 / 9) + 273.15; // Fahrenheit to Kelvin
+            } else if (temp1 === 'K' && temp2 === 'F') {
+                results = ((value - 273.15) * 9 / 5) + 32; // Kelvin to Fahrenheit
+            }
+
+            return results;
+        }
+        function giveResult() {
+            let givenValue = document.getElementById("given").value;
+            let temp1 = document.getElementById("temp1").value;
+            let temp2 = document.getElementById("temp2").value;
+
+            
+            let answer = Converter(temp1, temp2, parseFloat(givenValue));
+            document.getElementById("output").innerText = answer?.toFixed();
+        }
+
+    </script>
+</body>
+
+</html>

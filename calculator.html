@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        #container {
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 10px;
+            padding-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <h2>Calculator</h2>
+        <input id="given" type="text" placeholder="Enter numbers..." style="margin-bottom: 10px; padding: 10px; ">
+        <div id="keys">
+            <div id="col-1">
+                <i class="fa-solid fa-1" onclick="appendToInput('1')"
+                    style="margin-left:10px; margin-right: 35px;margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-2" onclick="appendToInput('2')"
+                    style="margin-right: 36px;margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-3" onclick="appendToInput('3')"
+                    style="margin-right: 36px;margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-plus" onclick="appendToInput('+')"
+                    style="margin-right: 35px;margin-bottom: 15px;"></i>
+            </div>
+            <div id="col-2">
+                <i class="fa-solid fa-4" onclick="appendToInput('4')"
+                    style="margin-left:10px;margin-right: 35px; margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-5" onclick="appendToInput('5')"
+                    style="margin-right: 35px;margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-6" onclick="appendToInput('6')"
+                    style="margin-right: 35px;margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-xmark" onclick="appendToInput('*')"
+                    style="margin-right: 35px;margin-bottom: 15px;"></i>
+            </div>
+            <div id="col-3">
+                <i class="fa-solid fa-7" onclick="appendToInput('7')"
+                    style="margin-left:12px;margin-right: 35px;margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-8" onclick="appendToInput('8')"
+                    style="margin-right: 35px;margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-9" onclick="appendToInput('9')"
+                    style="margin-right: 35px;margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-divide" onclick="appendToInput('/')"
+                    style="margin-right: 35px;margin-bottom: 15px;"></i>
+            </div>
+            <div id="col-4">
+                <i class="fa-solid fa-backspace" onclick="removeLastCharacter()"
+                    style="margin-left:10px;margin-right: 30px;margin-top: 15px;"></i>
+                <i class="fa-solid fa-0" onclick="appendToInput('0')" style="margin-right: 30px;margin-top: 15px;"></i>
+                <i class="fa-solid fa-minus" onclick="appendToInput('-')"
+                    style="margin-right: 34px;margin-top: 15px;"></i>
+                <i class="fa-solid fa-equals" onclick="calculateResult()"
+                    style="margin-right: 30px;margin-top: 15px;"></i>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function appendToInput(value) {
+            const inputField = document.getElementById('given');
+            inputField.value += value;
+        }
+
+        function calculateResult() {
+            const inputField = document.getElementById('given');
+            try {
+                const result = eval(inputField.value);
+                inputField.value = result;
+            } catch (error) {
+                inputField.value = 'Error';
+            }
+        }
+
+        function removeLastCharacter() {
+            const inputField = document.getElementById('given');
+            inputField.value = inputField.value.slice(0, -1);
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+    <!-- <script>
+        /* simple math */
+        // let y=9+6;
+        // let x=y*0;
+        // document.body.innerHTML = 'The Result is ' + x; 
+
+
+
+
+        // fahrein heit to celsius in console method
+
+//         function fahrenheitToCelsius(fahrenheit) {
+//     let celsius;
+//     if (fahrenheit) {
+//         celsius = (fahrenheit - 32) * (5 / 9);
+//     } else {
+//         console.log("Please provide a valid Fahrenheit value.");
+//         return null; // Return null if no valid input
+//     }
+//     return celsius;
+// }
+
+
+// let fahrenheit = 2;
+//     let celsius = fahrenheitToCelsius(fahrenheit);
+//     if (celsius !== null) {
+//         console.log(`${fahrenheit}°F is ${celsius.toFixed(2)}°C`);
+//     } else {
+//         console.log("Conversion failed due to invalid input.");
+//     }
+    
+  
+
+
+
+
+
+
+
+
+    </script> -->

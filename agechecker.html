@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Checker</title>
+</head>
+<body>
+    <h1>Age Checker</h1>
+    <label for="ageInput">Enter your age:</label>
+    <input type="number" id="ageInput" />
+    <button id="checkButton">Check</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("checkButton").addEventListener("click", function() {
+            let age = parseInt(document.getElementById("ageInput").value); 
+
+            let resultText;
+            if (age >= 18) {
+                resultText = "Adult";
+            } else {
+                resultText = "Minor";
+            }
+
+            document.getElementById("result").innerText = resultText; 
+        });
+    </script>
+</body>
+</html>

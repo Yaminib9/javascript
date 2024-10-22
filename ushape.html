@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U Shape with Stars</title>
+    <style>
+        .row {
+            font-family: monospace;
+            /* For uniform spacing */
+            white-space: pre;
+            /* Preserve whitespace */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="uShape"></div>
+
+    <script>
+        function createUShape(rows) {
+            const container = document.getElementById('uShape');
+            for (let i = 0; i < rows; i++) {
+
+                let line = '';
+                for (let j = 0; j < rows; j++) {
+                    if (j === 0 || j === rows - 1) {
+
+                        line += '*'; // Left and right sides of U
+
+                    } else if (i === rows - 1) {
+
+                        line += '*'; // Bottom of U
+
+                    } else {
+                        line += ' '; // Space in the middle
+                    }
+                }
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'row';
+                rowDiv.textContent = line;
+                container.appendChild(rowDiv);
+            }
+        }
+
+        createUShape(9); // Adjust the number to change the height of the U shape
+    </script>
+</body>
+
+</html>

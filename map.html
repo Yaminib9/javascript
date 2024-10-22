@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div id="users">
+      
+     </div>
+
+    <script>
+        // const num=[1,2,3,4,5,6];
+        // const doubled=num.map(num=>num*2)
+        // console.log(doubled)
+
+
+        const users = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 }
+];
+
+const names = users.map(user => user.name);
+const namesList = `{${names.join(', ')}}`;
+console.log(names); 
+document.getElementById("users").innerHTML=namesList
+
+    </script>
+</body>
+</html>
